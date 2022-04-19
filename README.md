@@ -109,7 +109,7 @@ You can recieve notifications even when the app is fully closed.
 
 <img src="https://github.com/mcphee11/flutter-openMessaging/blob/master/docs/images/notification1.png?raw=true" width="300" height="590">
 
-<img src="https://github.com/mcphee11/flutter-openMessaging/blob/master/docs/images/notification2.png?raw=true" width="300" height="590">
+<img src="https://github.com/mcphee11/flutter-openMessaging/blob/master/docs/images/notification2.png?raw=true" width="400" height="350">
 
 ## 9. Agent Restart
 
