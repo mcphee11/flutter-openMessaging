@@ -95,4 +95,26 @@ Login Screen:
 
 Account Selection:
 
+<img src="https://github.com/mcphee11/flutter-openMessaging/blob/master/docs/images/apploginaccount.png?raw=true" width="300" height="590">
 
+Usage:
+
+<img src="https://github.com/mcphee11/flutter-openMessaging/blob/master/docs/images/appmessages.png?raw=true" width="300" height="590">
+
+<img src="https://github.com/mcphee11/flutter-openMessaging/blob/master/docs/images/appemojis.png?raw=true" width="300" height="590">
+
+Notifications:
+
+You can recieve notifications even when the app is fully closed.
+
+<img src="https://github.com/mcphee11/flutter-openMessaging/blob/master/docs/images/notification1.png?raw=true" width="300" height="590">
+
+<img src="https://github.com/mcphee11/flutter-openMessaging/blob/master/docs/images/notification2.png?raw=true" width="300" height="590">
+
+## 9. Agent Restart
+
+I have not included this code but you can have a Cloud Function that will operate as the "Agentless Message" API to allow you to build out a simple Agent based UI to allow the agent to "restart" the conversation once its disconnected rather then waiting for the customer to reply with the Mobile App.
+
+![](/docs/images/agentpush.png?raw=true)
+
+This is an easy extension of the above example and if there is a requirement I may add that example code into another repo in the future.
