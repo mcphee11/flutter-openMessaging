@@ -38,17 +38,17 @@ dependencies:
   # http: ^0.13.3
   image_picker: ^0.8.5
   flutter_local_notifications: ^9.3.2
-  firebase_core: ^1.12.0
-  cloud_firestore: ^3.1.7
-  firebase_analytics: ^9.1.0
-  firebase_auth: ^3.3.6
+  firebase_core: ^1.15.0
+  cloud_firestore: ^3.1.13
+  firebase_analytics: ^9.1.6
+  firebase_auth: ^3.3.16
   google_sign_in: ^5.3.0
   provider: ^6.0.2
   font_awesome_flutter: ^9.2.0
   rxdart: ^0.27.3
-  firebase_messaging: ^11.2.6
+  firebase_messaging: ^11.2.15
   badges: ^2.0.2
-  firebase_storage: ^10.2.12
+  firebase_storage: ^10.2.14
 
 dev_dependencies:
   flutter_test:
