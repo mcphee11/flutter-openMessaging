@@ -132,17 +132,17 @@ You will need to create this file and host it in the root Dir of the Flutter for
 From this you can copy the firebaseConfig JSON object with the settings from your project. Use this to create the "firebaseconfig.js" file:
 
     var firebaseConfig = {
-    apiKey: "YOUR_API_KEP",
-    authDomain: "YOUR_DOMAIN",
-    databaseURL: "YOUR_URL",
-    projectId: "YOUR_PROJECTID",
-    storageBucket: "YOUR_BUCKET",
-    messagingSenderId: "YOURID",
-    appId: "YOUR_APPID",
-    measurementId: "YOUR_MEASURMENTID"
-  };
+        apiKey: "YOUR_API_KEP",
+        authDomain: "YOUR_DOMAIN",
+        databaseURL: "YOUR_URL",
+        projectId: "YOUR_PROJECTID",
+        storageBucket: "YOUR_BUCKET",
+        messagingSenderId: "YOURID",
+        appId: "YOUR_APPID",
+        measurementId: "YOUR_MEASURMENTID"
+    };
 
-  firebase.initializeApp(firebaseConfig);
+    firebase.initializeApp(firebaseConfig);
 
 Save this and once you have ran the command to build the web app
 
