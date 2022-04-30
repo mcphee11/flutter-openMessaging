@@ -118,3 +118,35 @@ I have not included this code but you can have a Cloud Function that will operat
 ![](/docs/images/agentpush.png?raw=true)
 
 This is an easy extension of the above example and if there is a requirement I may add that example code into another repo in the future.
+
+# Flutter Web Build
+
+To build this app as a Flutter for Web application I have updated the required packages as well as the index.html file in the /open_messaging/web/ dir. In this file you will notice that the firebase CDNs are now listed as well as a new file called:
+
+    firebaseconfig.js
+
+You will need to create this file and host it in the root Dir of the Flutter for web project once its built. To build the file simply go to your Firebase project and get the CDN configuration,
+
+![](/docs/images/htmlapp.png?raw=true)
+
+From this you can copy the firebaseConfig JSON object with the settings from your project. Use this to create the "firebaseconfig.js" file:
+
+    var firebaseConfig = {
+    apiKey: "YOUR_API_KEP",
+    authDomain: "YOUR_DOMAIN",
+    databaseURL: "YOUR_URL",
+    projectId: "YOUR_PROJECTID",
+    storageBucket: "YOUR_BUCKET",
+    messagingSenderId: "YOURID",
+    appId: "YOUR_APPID",
+    measurementId: "YOUR_MEASURMENTID"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+
+Save this and once you have ran the command to build the web app
+
+    Flutter build web
+
+In the /build/web/ location save this new config js file and now when you run the index.html file it will load all your settings. Where ever you host this website build you will need to ensure that you also have that domain allowed in the OAuth provider you have used in this example that is Google in the Firebase Auth providers.
+
