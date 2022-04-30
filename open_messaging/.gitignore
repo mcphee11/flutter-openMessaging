@@ -8,6 +8,7 @@
 .buildlog/
 .history
 .svn/
+/assets/firebaseconfig.js
 
 # IntelliJ related
 *.iml
