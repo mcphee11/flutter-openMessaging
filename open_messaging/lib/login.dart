@@ -23,7 +23,7 @@ class _LoginPageState extends State<LoginPage> with WidgetsBindingObserver {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
           } else if (snapshot.hasData) {
-            return HomeScreen();
+            return const HomeScreen();
           } else if (snapshot.hasError) {
             return const Center(child: Text('Something went wrong!'));
           } else {
@@ -31,37 +31,35 @@ class _LoginPageState extends State<LoginPage> with WidgetsBindingObserver {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 //const SizedBox(height: 170),
-                Container(
-                  child: Column(
-                    children: const <Widget>[
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: Padding(
-                          padding: EdgeInsets.fromLTRB(40.0, 20.0, 40.0, 0.0),
-                          child: Text(
-                            'Welcome',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 40,
-                                color: Colors.white),
-                          ),
+                const Column(
+                  children: <Widget>[
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Padding(
+                        padding: EdgeInsets.fromLTRB(40.0, 20.0, 40.0, 0.0),
+                        child: Text(
+                          'Welcome',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 40,
+                              color: Colors.white),
                         ),
                       ),
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: Padding(
-                          padding: EdgeInsets.fromLTRB(40.0, 20.0, 40.0, 180.0),
-                          child: Text(
-                            'Please Login',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 22,
-                                color: Colors.white),
-                          ),
+                    ),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Padding(
+                        padding: EdgeInsets.fromLTRB(40.0, 20.0, 40.0, 180.0),
+                        child: Text(
+                          'Please Login',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 22,
+                              color: Colors.white),
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
                 Center(
                   child: Column(
@@ -79,9 +77,8 @@ class _LoginPageState extends State<LoginPage> with WidgetsBindingObserver {
                         ),
                         label: const Text('Login'),
                         style: ElevatedButton.styleFrom(
-                          primary: Colors.white,
-                          onPrimary: Colors.black,
-                          minimumSize: Size(300, 50),
+                          foregroundColor: Colors.black, backgroundColor: Colors.white,
+                          minimumSize: const Size(300, 50),
                         ),
                       ),
                     ],

@@ -36,19 +36,19 @@ dependencies:
   cupertino_icons: ^1.0.2
   # web_socket_channel: ^2.1.0
   # http: ^0.13.3
-  image_picker: ^0.8.5
-  flutter_local_notifications: ^9.3.2
-  firebase_core: ^1.15.0
-  cloud_firestore: ^3.1.13
-  firebase_analytics: ^9.1.6
-  firebase_auth: ^3.3.16
-  google_sign_in: ^5.3.0
+  image_picker: ^1.0.0
+  flutter_local_notifications: ^15.1.0+1
+  google_sign_in: ^6.1.4
   provider: ^6.0.2
-  font_awesome_flutter: ^9.2.0
+  font_awesome_flutter: ^10.5.0
   rxdart: ^0.27.3
-  firebase_messaging: ^11.2.15
-  badges: ^2.0.2
-  firebase_storage: ^10.2.14
+  badges: ^3.1.1
+  firebase_core: ^2.14.0
+  cloud_firestore: ^4.8.2
+  firebase_analytics: ^10.4.3
+  firebase_auth: ^4.6.3
+  firebase_messaging: ^14.6.4
+  firebase_storage: ^11.2.4
 
 dev_dependencies:
   flutter_test:
@@ -60,7 +60,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^1.0.0
+  flutter_lints: ^2.0.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

@@ -1,12 +1,8 @@
 import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:open_messaging/google_sign_in.dart';
-import 'package:open_messaging/main.dart';
 import 'package:provider/provider.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +13,7 @@ class Messaging extends StatefulWidget {
   const Messaging({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _MessagingState createState() => _MessagingState();
 }
 
@@ -24,6 +21,7 @@ class _MessagingState extends State<Messaging> with WidgetsBindingObserver {
   final TextEditingController _controller =
       TextEditingController(); //Capture input
   final ImagePicker _picker = ImagePicker();
+  // ignore: unused_field
   late XFile _image;
   final Storage storage = Storage(); //used for file upload
   final user = FirebaseAuth.instance.currentUser!; //gets the firebase user
@@ -93,7 +91,6 @@ class _MessagingState extends State<Messaging> with WidgetsBindingObserver {
                     Future.delayed(
                         const Duration(seconds: 1),
                         () => {
-                              print('delay'),
                               Provider.of<MessageIcon>(context, listen: false)
                                   .updateMessageIcon(false),
                               _scrollController.animateTo(99999999,
@@ -110,11 +107,17 @@ class _MessagingState extends State<Messaging> with WidgetsBindingObserver {
                       itemBuilder: (context, index) {
                         if (data.docs[index]['richMedia'] ==
                             true) {
-                          print('Richmedia');
+                          if (kDebugMode) {
+                            print('Richmedia');
+                          }
                           List array = data.docs[index]['attachment'];
-                          print('inside RichMedia');
+                          if (kDebugMode) {
+                            print('inside RichMedia');
+                          }
                           array.forEach((arrayMessage) {
-                            print(arrayMessage);
+                            if (kDebugMode) {
+                              print(arrayMessage);
+                            }
                             if ('${arrayMessage['contentType']}' ==
                                 'QuickReply') {
                               ChatMessage(
@@ -133,7 +136,7 @@ class _MessagingState extends State<Messaging> with WidgetsBindingObserver {
                               url: data.docs[index]['url'],
                               richMedia: data.docs[index]['richMedia']);
                         }
-                        return Text('No Condition Met');
+                        return const Text('No Condition Met');
                       });
                 },
               ),
@@ -233,10 +236,14 @@ class _MessagingState extends State<Messaging> with WidgetsBindingObserver {
   //access to file explorer
   pickImage() async {
     XFile? image = await _picker.pickImage(source: ImageSource.gallery);
-    print('image: ' + image!.name);
-    var bytes = await image.length();
-    print(bytes);
-    _image = image;
+    if (kDebugMode) {
+      print('image: ${image!.name}');
+    }
+    var bytes = await image?.length();
+    if (kDebugMode) {
+      print(bytes);
+    }
+    _image = image!;
     storage
         .uploadFile(image.path, image.name)
         .then((value) => storage.downloadURL(image.name))
@@ -246,10 +253,14 @@ class _MessagingState extends State<Messaging> with WidgetsBindingObserver {
   //access to camera
   getCamera() async {
     XFile? photo = await _picker.pickImage(source: ImageSource.camera);
-    print('photo name: ' + photo!.name);
-    var bytes = await photo.length();
-    print(bytes);
-    _image = photo;
+    if (kDebugMode) {
+      print('photo name: ${photo!.name}');
+    }
+    var bytes = await photo?.length();
+    if (kDebugMode) {
+      print(bytes);
+    }
+    _image = photo!;
     storage
         .uploadFile(photo.path, photo.name)
         .then((value) => storage.downloadURL(photo.name))

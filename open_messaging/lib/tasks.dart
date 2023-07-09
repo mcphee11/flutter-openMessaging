@@ -1,14 +1,14 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:open_messaging/google_sign_in.dart';
 import 'package:provider/provider.dart';
 
 class Tasks extends StatelessWidget {
+  const Tasks({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
-    final user = FirebaseAuth.instance.currentUser!; //gets the firebase user
+    //final user = FirebaseAuth.instance.currentUser!; //gets the firebase user
     
     return Scaffold(
       backgroundColor: Colors.black,

@@ -1,6 +1,5 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:open_messaging/classes.dart'; //json quickReplies json object
+//import 'package:open_messaging/classes.dart'; //json quickReplies json object
 
 class ChatMessage extends StatelessWidget {
   final String text;
@@ -8,14 +7,15 @@ class ChatMessage extends StatelessWidget {
   final String attachment;
   final String url;
   final bool richMedia;
+  // ignore: prefer_typing_uninitialized_variables
   final payload;
-  ChatMessage(
-      {required this.text,
+  const ChatMessage(
+      {Key? key, required this.text,
       required this.user,
       required this.richMedia,
       required this.attachment,
       required this.url,
-      this.payload}); //gets the text msg as well as the user name
+      this.payload}) : super(key: key); //gets the text msg as well as the user name
 
   @override
   Widget build(BuildContext context) {

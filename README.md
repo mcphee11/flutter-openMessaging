@@ -73,15 +73,38 @@ Make sure that you have enabled and configured firebase cloud messaging to get t
 
 ## 7. Project Settings
 
-Create an "Android" App in the project settings for this you will need to generate a SHA key both 256 and 1 there are details on how to do this [here](https://developers.google.com/android/guides/client-auth). In my example I also created an HTML one to also run this App in Web but you only need to do it for the platfrom your planning to use. Once you have done this you will need to download the json file. The "Package name" is set to "com.example.open_messaging" as this is what it is set to in the Flutter application.
+Create a "Flutter" App... This will step you through the process of adding and creating the apps you require including Android, ios and Web. As you have alread created the app you wont need to do ALL the steps, you will need to do the below.
+
+![](/docs/images/flutterApp.png?raw=true)
+
+first open the terminal and move into the flutter folder eg
+
+    cd open_messaging
+
+From here insure you are logged into the flutter account that you have already setup in the server build.
+
+    firebase login
+
+You dont need to create the flutter project as its already created. So next ensure you ahve the flutterfire_cli installed
+
+    dart pub global activate flutterfire_cli
+
+Then configure the project your using. If the Firebase Web UI it will give you your project name if you dont have it you can enter the belwo then select the project name in firbase your using.
+
+    flutterfire configure
+
+Now use the space bar to select the Apps you want to create eg Android & web. If you want iso include this as well. This will then create a "lib/firebase_options.dart" file which will have OS config information. I have already put this in the gitignore file, as well as the ios runner files that get created and the google-services.json fiel that will auto import as well which is a much more automated process then it was previously. 
+
+Once the Apps are created go into the the Android App and ensure you create both a SHA1 & SHA256 key. NOTE if your moving to a new Developer env you will also need to add this new device codes. To generate these information can be found [here](https://developers.google.com/android/guides/client-auth). These steps may change over time so pease also do follow the firebase UI steps.
+
+
+![](/docs/images/createApp.png?raw=true)
 
     google-services.json
 
 ![](/docs/images/projectapps.png?raw=true)
 
-Now that you have the json file with connection detials for your environment you will need to paste this into the directory
-
-    /open_messaging/app/
+File will now auto import with new process no need to download and import.
 
 ![](/docs/images/json.png?raw=true)
 

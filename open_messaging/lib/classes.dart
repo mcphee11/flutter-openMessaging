@@ -2,6 +2,9 @@ import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:firebase_core/firebase_core.dart' as firebase_core;
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
+
+// ignore: camel_case_types
 class classes {
   final List entities;
 
@@ -25,7 +28,9 @@ class Storage {
     try{
       await storage.ref('uploads/$fileName').putFile(file);
     } on firebase_core.FirebaseException catch (e) {
-      print(e);
+      if (kDebugMode) {
+        print(e);
+      }
     }
   }
 

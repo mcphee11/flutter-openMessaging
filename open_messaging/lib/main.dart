@@ -1,8 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:open_messaging/firebase_options.dart';
 import 'package:open_messaging/google_sign_in.dart';
 import 'package:open_messaging/login.dart';
 import 'package:provider/provider.dart';
@@ -19,8 +19,10 @@ final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
-  await Firebase.initializeApp();
-  print('A background message: ${message.messageId}');
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  if (kDebugMode) {
+    print('A background message: ${message.messageId}');
+  }
   if (message.data.containsKey('messageText')) {
     // Show notification
     flutterLocalNotificationsPlugin.show(
@@ -41,7 +43,7 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   //Firebase Notifications
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
@@ -72,7 +74,9 @@ class MyApp extends StatelessWidget {
         child: MaterialApp(
           theme: ThemeData(
               primaryColor: Colors.blue[100],
-              secondaryHeaderColor: Colors.black, colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.black)),
+              secondaryHeaderColor: Colors.black,
+              colorScheme:
+                  ColorScheme.fromSwatch().copyWith(secondary: Colors.black)),
           debugShowCheckedModeBanner: false,
           home: const LoginPage(),
         ),
