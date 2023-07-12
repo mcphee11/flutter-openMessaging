@@ -104,7 +104,7 @@ Once the Apps are created go into the the Android App and ensure you create both
 
 ![](/docs/images/projectapps.png?raw=true)
 
-File will now auto import with new process no need to download and import.
+    File will now auto import with new process no need to download and import.
 
 ![](/docs/images/json.png?raw=true)
 
@@ -148,28 +148,26 @@ To build this app as a Flutter for Web application I have updated the required p
 
     firebaseconfig.js
 
-You will need to create this file and host it in the root Dir of the Flutter for web project once its built. To build the file simply go to your Firebase project and get the CDN configuration,
+You will need to create this file and host it in the root Dir of the Flutter for web project once its built.
 
-![](/docs/images/htmlapp.png?raw=true)
+Use this to create the "firebaseconfig.js" file:
 
-From this you can copy the firebaseConfig JSON object with the settings from your project. Use this to create the "firebaseconfig.js" file:
+    const meta = document.createElement('meta')
+    meta.name = 'google-signin-client_id'
+    meta.content = 'YOUR_CLIENTID'
+    document.head.append(meta)
 
-    var firebaseConfig = {
-        apiKey: "YOUR_API_KEP",
-        authDomain: "YOUR_DOMAIN",
-        databaseURL: "YOUR_URL",
-        projectId: "YOUR_PROJECTID",
-        storageBucket: "YOUR_BUCKET",
-        messagingSenderId: "YOURID",
-        appId: "YOUR_APPID",
-        measurementId: "YOUR_MEASURMENTID"
-    };
+To get the "CLIENTID" you can go to your "credentials" page in your GCP profile page [here](https://console.cloud.google.com/apis/credentials) there should already be a "OAuth 2.0 Client IDs" created for each of the platforms you have selected to build eg: Android, iOS and Web. In this case as we are deploying the "Web" copy that "Client ID" and use that in the firebaseconfig.js file
 
-    firebase.initializeApp(firebaseConfig);
+once you run this you may get an error thrown saying that an API is not enabled
 
-Save this and once you have ran the command to build the web app
+![](/docs/images/errorThrown.png?raw=true)
 
-    Flutter build web
+If you click on the link in the error thrown you will be taken to your GCP project to enable the API.
 
+![](/docs/images/enableAPI.png?raw=true)
+
+Once you enable the API ensure that you fully reload the browser and it should now offer the OAuth Popup and work as expected.
+
+## NOTE:
 In the /build/web/ location save this new config js file and now when you run the index.html file it will load all your settings. Where ever you host this website build you will need to ensure that you also have that domain allowed in the OAuth provider you have used in this example that is Google in the Firebase Auth providers.
-
