@@ -1,3 +1,9 @@
+# ⛔️ NO LONGER MAINTAINED ⛔️
+In stead I'm now using the MMSDK details can be found [HERE](https://developer.genesys.cloud/commdigital/digital/webmessaging/mobile-messaging/messenger-mobile-sdk/)
+
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+
+
 # flutter-openMessaging
 
 This is designed as an example only for using a Flutter Mobile App as the client for the firebase BaaS  in openMessaging for Genesys Cloud [OpenMessaging](https://developer.genesys.cloud/commdigital/digital/openmessaging/). This repo is the client side of the Middleware and there is another repo I have created that is the server side written as a Firebase/JavaScript project. This example requires you to have experience with firebase & Flutter. Before starting this project I recommend doing the server side of the middleware that can be found [here](https://github.com/mcphee11/firebase-openMessaging)
